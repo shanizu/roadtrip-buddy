@@ -15,8 +15,8 @@ const InputForm = ({ onFormSubmit }: InputFormProps) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="row mb-3">
-        <label className="col-sm-2 col-form-label">Origin</label>
-        <div className="col-sm-10">
+        <label className="col-form-label">Origin</label>
+        <div className="col">
           <input
             type="text"
             className="form-control"
@@ -26,8 +26,8 @@ const InputForm = ({ onFormSubmit }: InputFormProps) => {
         </div>
       </div>
       <div className="row mb-4">
-        <label className="col-sm-2 col-form-label">Destination</label>
-        <div className="col-sm-10">
+        <label className="col-form-label">Destination</label>
+        <div className="col">
           <input
             type="text"
             className="form-control"
