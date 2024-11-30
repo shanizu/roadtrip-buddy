@@ -1,11 +1,25 @@
-import { APIProvider } from "@vis.gl/react-google-maps";
 import InputForm from "./components/InputForm";
 import MapComponent from "./components/MapComponent";
+import { fetchRouteData, fetchWaypoints } from "./utils/googleMapsService";
+import { parseCoordinates } from "./utils/locationUtils";
 
 function App() {
-  const handleFormSubmit = async (origin: String, destination: String) => {
-    console.log(origin);
-    console.log(destination);
+  const handleFormSubmit = async (
+    originString: String,
+    destinationString: String
+  ) => {
+    const origin = parseCoordinates(originString);
+    const destination = parseCoordinates(destinationString);
+    console.log("Origin is:", origin, "Destination is:", destination);
+    try {
+      const polyline = await fetchRouteData(origin, destination);
+      console.log(polyline);
+
+      const waypoints = await fetchWaypoints(polyline);
+      console.log(waypoints);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
