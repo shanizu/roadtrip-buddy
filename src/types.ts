@@ -13,7 +13,8 @@ export interface Waypoint {
     languageCode: string;
     text: string;
   }
-  editorialSummary: {
+  formattedAddress: string;
+  editorialSummary?: {
     languageCode: string;
     text: string;
   }
