@@ -33,8 +33,8 @@ export const fetchWaypoints = async (polyline: string) => {
     pageSize: 10,
   };
 
-  const fieldMask = "places.displayName,places.formattedAddress,places.priceLevel,places.location";
-  const data = await fetchGoogleMapsData<{ places: { location: Coordinates; displayName: string }[] }>({
+  const fieldMask = "places.displayName,places.formattedAddress,places.editorialSummary,places.location";
+  const data = await fetchGoogleMapsData<{ places: { location: Coordinates; displayName: string, editorialSummary: string }[] }>({
     endpoint,
     requestBody,
     fieldMask,
