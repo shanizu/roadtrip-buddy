@@ -40,8 +40,8 @@ function App() {
         <div className="col">
           <InputForm onFormSubmit={handleFormSubmit} />
         </div>
-        <div className="col-9 img-fluid">
-          <MapComponent />
+        <div className="col-9">
+          <MapComponent waypoints={waypoints} route={route} />
         </div>
       </div>
       <div>
