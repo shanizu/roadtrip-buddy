@@ -10,6 +10,7 @@ export interface Route {
 export interface Waypoint {
   location: Coordinates;
   displayName: string;
+  editorialSummary: string;
 }
 
 export interface FetchOptions {
