@@ -9,8 +9,14 @@ export interface Route {
 
 export interface Waypoint {
   location: Coordinates;
-  displayName: string;
-  editorialSummary: string;
+  displayName: {
+    languageCode: string;
+    text: string;
+  }
+  editorialSummary: {
+    languageCode: string;
+    text: string;
+  }
 }
 
 export interface FetchOptions {
