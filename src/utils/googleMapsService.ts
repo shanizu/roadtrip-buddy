@@ -1,4 +1,4 @@
-import { Coordinates, FetchOptions } from "../types";
+import { Coordinates, FetchOptions, Waypoint } from "../types";
 
 // Wrapper for fetching route data
 export const fetchRouteData = async (origin: Coordinates, destination: Coordinates) => {
@@ -34,7 +34,7 @@ export const fetchWaypoints = async (polyline: string) => {
   };
 
   const fieldMask = "places.displayName,places.formattedAddress,places.editorialSummary,places.location";
-  const data = await fetchGoogleMapsData<{ places: { location: Coordinates; displayName: string, editorialSummary: string }[] }>({
+  const data = await fetchGoogleMapsData<{ places: Waypoint[] }>({
     endpoint,
     requestBody,
     fieldMask,
