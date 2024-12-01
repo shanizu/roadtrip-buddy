@@ -20,7 +20,7 @@ const WaypointsList = ({ waypoints }: WaypointListProps) => {
           >
             <div className="d-flex w-100 justify-content-between">
               <h5 className="mb-1">{waypoint.displayName.text}</h5>
-              <small className="text-body-secondary">{index + 1}</small>
+              {/* <small className="text-body-secondary">{index + 1}</small> */}
             </div>
             {waypoint.editorialSummary && (
               <p className="mb-1">{waypoint.editorialSummary.text}</p>
