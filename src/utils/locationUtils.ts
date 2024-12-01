@@ -8,7 +8,7 @@ import { Coordinates } from "../types";
 export const parseCoordinates = (input: String): Coordinates => {
   const [latitude, longitude] = input.split(",").map(Number);
   if (isNaN(latitude) || isNaN(longitude)) {
-    throw console.error();
+    throw console.error("Invalid coordinates submitted.");
   }
   return { latitude, longitude };
 };
