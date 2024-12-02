@@ -1,7 +1,11 @@
 import { useState } from "react";
 import InputForm from "./components/InputForm";
 import MapComponent from "./components/MapComponent";
-import { fetchRouteData, fetchWaypoints } from "./utils/googleMapsService";
+import {
+  fetchLocationData,
+  fetchRouteData,
+  fetchWaypoints,
+} from "./utils/googleMapsService";
 import { parseCoordinates } from "./utils/locationUtils";
 import WaypointsList from "./components/WaypointsList";
 import { Waypoint } from "./types";
@@ -14,8 +18,10 @@ function App() {
     originString: String,
     destinationString: String
   ) => {
-    const origin = parseCoordinates(originString);
-    const destination = parseCoordinates(destinationString);
+    // const origin = parseCoordinates(originString);
+    // const destination = parseCoordinates(destinationString);
+    const origin = await fetchLocationData(originString);
+    const destination = await fetchLocationData(destinationString);
     console.log("Origin is:", origin, "Destination is:", destination);
     try {
       const polyline = await fetchRouteData(origin, destination);
@@ -44,7 +50,7 @@ function App() {
           <MapComponent waypoints={waypoints} route={route} />
         </div>
       </div>
-      <div>
+      <div className="mb-5">
         <WaypointsList waypoints={waypoints} />
       </div>
     </div>

@@ -17,12 +17,12 @@ const MapComponent = ({ waypoints, route }: MapComponentProps) => {
   return (
     <APIProvider apiKey={import.meta.env.VITE_MAPS_API_KEY}>
       <Map
-        defaultZoom={10}
-        defaultCenter={{ lat: 37.7749, lng: -122.4194 }}
+        defaultZoom={3}
+        defaultCenter={{ lat: 40.418412, lng: -99.52436 }}
         mapId={"DEMO_MAP_ID"}
       >
         <Polyline
-          strokeWeight={3}
+          strokeWeight={4}
           strokeColor={"#0d6efd"}
           encodedPath={route}
         />

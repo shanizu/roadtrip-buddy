@@ -1,5 +1,23 @@
 import { Coordinates, FetchOptions, Waypoint } from "../types";
 
+// Wrapper for fetching origin/destination data
+export const fetchLocationData = async (locationString: String) => {
+  const endpoint = "https://places.googleapis.com/v1/places:searchText";
+  const requestBody = {
+    textQuery: locationString,
+    pageSize: 1,
+  };
+
+  const fieldMask = "places.displayName,places.formattedAddress,places.editorialSummary,places.location";
+  const data = await fetchGoogleMapsData<{ places: Waypoint[] }>({
+    endpoint,
+    requestBody,
+    fieldMask,
+  });
+
+  return data.places?.[0]?.location || []
+};
+
 // Wrapper for fetching route data
 export const fetchRouteData = async (origin: Coordinates, destination: Coordinates) => {
   const endpoint = "https://routes.googleapis.com/directions/v2:computeRoutes";
@@ -26,7 +44,7 @@ export const fetchRouteData = async (origin: Coordinates, destination: Coordinat
 export const fetchWaypoints = async (polyline: string) => {
   const endpoint = "https://places.googleapis.com/v1/places:searchText";
   const requestBody = {
-    textQuery: "Attractions",
+    textQuery: "Things to see along route, Things to do along route",
     searchAlongRouteParameters: {
       polyline: { encodedPolyline: polyline },
     },
