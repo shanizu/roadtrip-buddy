@@ -6,7 +6,6 @@ import {
   fetchRouteData,
   fetchWaypoints,
 } from "./utils/googleMapsService";
-import { parseCoordinates } from "./utils/locationUtils";
 import WaypointsList from "./components/WaypointsList";
 import { Waypoint } from "./types";
 
@@ -18,8 +17,6 @@ function App() {
     originString: String,
     destinationString: String
   ) => {
-    // const origin = parseCoordinates(originString);
-    // const destination = parseCoordinates(destinationString);
     const origin = await fetchLocationData(originString);
     const destination = await fetchLocationData(destinationString);
     console.log("Origin is:", origin, "Destination is:", destination);
@@ -39,7 +36,7 @@ function App() {
   return (
     <div className="container">
       <div className="text-center p-4">
-        <h1>Roadtrip Buddy</h1>
+        <h1 >Roadtrip Buddy</h1>
         <h4>I'll find the stops, so you can go!</h4>
       </div>
       <div className="row mb-4">
