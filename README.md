@@ -33,7 +33,13 @@
    ```bash
    npm install
    ```
-3. Run the development server:
+3. Set up the environment file:
+   - Create a `.env` file in the root directory.
+   - Add your Google Maps API key:
+     ```
+     VITE_MAPS_API_KEY=your_google_maps_api_key
+     ```
+4. Run the development server:
    ```bash
    npm run dev
    ```
@@ -44,8 +50,10 @@
 
 ## TODOs/Future Enhancements
 
+- **Component Testing**: Implement comprehensive tests for all React components to ensure reliability and maintainability.
 - **Interactive Google Map Pins**: Make map pins interactable with the waypoint list. Clicking a waypoint in the list should zoom the map to the corresponding pin.
 - **Auto-Zoom**: Enable auto-zooming on the map to fit the generated route and selected pins for better navigation.
-- **Component Testing**: Implement comprehensive tests for all React components to ensure reliability and maintainability
+- **User Preferences**: Allow users to customize waypoint categories, such as food, gas stations, and attractions.
+- **Sharing Routes**: Enable route sharing via a unique link or QR code.
 
 Enjoy your road trip planning! 🌟
